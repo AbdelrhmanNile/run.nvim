@@ -1,6 +1,6 @@
 local options = {
   border = "rounded",
-  gap = 2
+  gap = 10
 }
 
 return options 
