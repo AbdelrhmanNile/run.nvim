@@ -11,15 +11,14 @@ local function main()
   end
   
   --window
-  local height = vim.api.nvim_win_get_height(0)
-  local width = vim.api.nvim_win_get_width(0)
+  local ui = vim.api.nvim_list_uis()[1]
   local buffer = vim.api.nvim_create_buf(false, true)
   local win = vim.api.nvim_open_win(buffer, true, {
-    relative = "win",
-    width = width - math.floor(width * options.gap),
-    height = height - math.floor(height * options.gap),
-    col = math.floor(width * options.gap / 2),
-    row = math.floor(height * options.gap / 2),
+    relative = "editor",
+    width = ui.width - (options.gap * 2),
+    height = ui.height - (options.gap * 2), 
+    col = options.gap,
+    row = options.gap,
     border = options.border,
     style = "minimal",
   })
